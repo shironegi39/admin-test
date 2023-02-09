@@ -3,6 +3,11 @@ class AdminsController < ApplicationController
         admins = Admin.all
         render json: admins
     end
+    
+    def show
+        admin = Admin.find(params[:id])
+        render json: admin
+    end
 
     def create
         Admin.create(admin_params)
@@ -13,7 +18,7 @@ class AdminsController < ApplicationController
         admin = Admin.find(params[:id])
         admin.destroy
         head :ok
-      end
+    end
 
     private
 
